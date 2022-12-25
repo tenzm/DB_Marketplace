@@ -1,0 +1,35 @@
+{% extends 'homepage.html' %} 
+{% load static %} 
+{% block content %} 
+{% include 'include/header.html' %}
+{% if user.is_superuser %}
+<div class="container">
+  <div class="row">
+    <form method="POST" enctype="multipart/form-data" class="self-form">
+      <!-- Security token -->
+      {% csrf_token %}
+
+      <!-- Using the formset -->
+      <ul style="padding: 0; margin: 0;">
+        <li class="input_original">
+          <p>Введите название категории:</p>
+          {{ form.title }}
+        </li>
+        <li class="input_original">
+          <p>Введите описание категории:</p>
+          {{ form.description }}
+        </li>
+        <li class="input_original">
+          <p>Введите код категории:</p>
+          {{ form.slug }}
+        </li>
+      </ul>
+
+      <input type="submit" class="submit-button" value="Оправить" />
+    </form>
+  </div>
+</div>
+{% else %}
+<h1>У вас нету доступа</h1>
+{% endif %}
+{% endblock %}

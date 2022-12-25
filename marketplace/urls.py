@@ -30,6 +30,7 @@ urlpatterns = [
     path('', include('apps.categories.urls')),
     path('', include('apps.users.urls')),
     path('', include('apps.cart.urls')),
+    path('category/', include('apps.cart.urls')),
 
     #django rest
     path('', include('apps.products.api.urls')),

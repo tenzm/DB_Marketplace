@@ -1,0 +1,18 @@
+.self-form input, .self-form textarea, .self-form select {
+    padding: 15px 30px !important;
+    border-radius: 5px !important;
+    border: 1px solid #bbb !important;
+    /*background-color: #fbfcff !important;*/
+    width: 500px;
+}
+
+.input_original p {
+    padding: 15px 0px !important;
+    color: #26395c;
+}
+
+.submit-button{
+    background-color: #1146b4 !important;
+    color: white !important;
+    margin-top: 30px !important;
+}

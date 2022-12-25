@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from apps.products.models import Product, ProductComment, FavoriteProduct, LikeProduct
+from apps.settings.utils import get_basic_context
 from apps.settings.models import Setting
 from apps.categories.models import Category
 from django.db.models import Q
@@ -36,19 +37,17 @@ def product_detail(request, slug):
 def product_search(request):
     products = Product.objects.all()
     qury_obj = request.GET.get('key')
-    home = Setting.objects.latest('id')
     if qury_obj:
         products = Product.objects.filter(Q(title__icontains = qury_obj))
-    context = {
-        'home' : home, 
-        'products' : products
-    }
+    context = get_basic_context()
+    context["products"] = products
     return render(request, 'products/search.html', context)
 
 def product_create(request):
-    form = ProductCreateForm(request.POST or None)
+    form = ProductCreateForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
+        print(form)
         return redirect('index')
     context = {
         'form' : form

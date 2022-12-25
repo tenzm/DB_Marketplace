@@ -1,0 +1,16 @@
+<svg width="196" height="217" viewBox="0 0 196 217" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="196" height="217" fill="white"/>
+<rect x="13.4365" y="14.95" width="168.327" height="118.246" rx="16" fill="#F2F7FF"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="13" y="14" width="169" height="120">
+<rect x="13.4365" y="14.9609" width="168.327" height="118.246" rx="16" fill="#F2F7FF"/>
+</mask>
+<g mask="url(#mask0)">
+<rect x="103.602" y="-27.0227" width="60.2343" height="117.453" rx="6.63" fill="#91B5EB"/>
+<rect x="107.681" y="-22.4812" width="52.0768" height="107.478" rx="6.63" fill="#F9FAFF"/>
+<rect x="31.3643" y="41.1736" width="60.2343" height="117.453" rx="6.63" fill="#91B5EB"/>
+<rect x="36.3921" y="46.4316" width="50.1788" height="111.816" rx="6.63" fill="#F9FAFF"/>
+<ellipse cx="44.4777" cy="54.4336" rx="3.86927" ry="3.86913" fill="#91B5EB"/>
+</g>
+<rect x="14.4414" y="151.142" width="146.021" height="13.1885" rx="6.59424" fill="#D4DDEE"/>
+<rect x="14.4414" y="172.333" width="63.7276" height="13.1885" rx="6.59424" fill="#EAECF7"/>
+</svg>

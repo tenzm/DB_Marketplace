@@ -1,0 +1,14 @@
+<svg width="196" height="217" viewBox="0 0 196 217" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="196" height="217" fill="white"/>
+<rect x="13.4365" y="14.9502" width="168.327" height="118.246" rx="16" fill="#F2F7FF"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="13" y="14" width="169" height="120">
+<rect x="13.4365" y="14.8501" width="168.327" height="118.246" rx="16" fill="#F2F7FF"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M130.613 39.4483C130.01 38.8094 128.934 39.2008 128.882 40.0784L128.401 48.206L128.395 48.2081L128.4 48.2219L128.4 48.222L128.4 48.222L151.207 110.881C151.993 113.04 154.38 114.153 156.539 113.367C158.697 112.582 159.81 110.195 159.024 108.036L136.212 45.363L136.206 45.3653L130.613 39.4483Z" fill="#91B5EB"/>
+<rect width="86.6869" height="113.673" rx="8.49431" transform="matrix(0.939697 -0.342009 0.342031 0.939689 27.3936 53.9724)" fill="#91B5EB"/>
+<rect width="74.1295" height="102.066" rx="6.49" transform="matrix(0.939697 -0.342009 0.342031 0.939689 35.2788 57.2783)" fill="#F9FAFF"/>
+</g>
+<rect x="14.4414" y="151.142" width="124.063" height="13.1885" rx="6.59424" fill="#D4DDEE"/>
+<rect x="14.4414" y="172.333" width="63.7276" height="13.1885" rx="6.59424" fill="#EAECF7"/>
+</svg>

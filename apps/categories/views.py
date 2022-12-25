@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from apps.settings.utils import get_basic_context
+from apps.categories.forms import CategoryCreateForm
 from apps.categories.models import Category
 from apps.products.models import Product
 from apps.settings.models import Setting
@@ -21,3 +23,17 @@ def category_detail(request, slug):
         'page_obj': page_obj,
     }
     return render(request, 'category_detail.html', context)
+
+def create_category(request):
+    form = CategoryCreateForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+
+    context = get_basic_context()
+
+    context['form'] = form
+    
+
+    return render(request, 'category/create.html', context)
