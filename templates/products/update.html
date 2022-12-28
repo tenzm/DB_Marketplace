@@ -1,13 +1,59 @@
-<div class="main">
-    <!-- Create a Form -->
-    <form method="POST">
-        <!-- Security token by Django -->
-        {% csrf_token %}
- 
-        <!-- form as paragraph -->
-        {{ form.as_p }}
- 
-        <input type="submit" value="Update">
+{% extends 'homepage.html' %} 
+{% load static %} 
+{% block content %} 
+{% include 'include/header.html' %}
+{% if user.is_superuser %}
+<div class="container">
+  <div class="row">
+    <form method="POST" enctype="multipart/form-data" class="self-form">
+      <!-- Security token -->
+      {% csrf_token %}
+
+      <!-- Using the formset -->
+      <ul style="padding: 0; margin: 0;">
+        <li class="input_original">
+          <p>Введите название продукта:</p>
+          {{ form.title }}
+        </li>
+        <li class="input_original">
+          <p>Введите описание продукта:</p>
+          {{ form.description }}
+        </li>
+        <li class="input_original">
+          <p>Укажите характеристики продукта:</p>
+          {{ form.specs }}
+        </li>
+        <li class="input_original">
+          <p>Добавьте изображение продукта:</p>
+          {{ form.main_product_image }}
+        </li>
+        <li class="input_original">
+          <p>Введите количество товара:</p>
+          {{ form.count }}
+        </li>
+        <li class="input_original">
+          <p>Введите цену товара:</p>
+          {{ form.price }}
+        </li>
+        <li class="input_original">
+          <p>Укажите категорию товара:</p>
+          {{ form.category }}
+        </li>
+        <li class="input_original">
+          <p>Введите код категории:</p>
+          {{ form.slug }}
+        </li>
+        <li class="input_original">
+          <p>Укажите рейтинг товара:</p>
+          {{ form.rating }}
+        </li>
+      </ul>
+
+      <input type="submit" class="submit-button" value="Оправить" />
     </form>
- 
+  </div>
 </div>
+{% else %}
+<h1>У вас нету доступа</h1>
+{% endif %}
+{% endblock %}

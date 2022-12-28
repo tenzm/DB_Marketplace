@@ -44,7 +44,7 @@
                                 {% for category in categories %}
                                 <a href="{% url 'category_detail' category.slug %}" class="dropdown-link" tabindex="0" bis_skin_checked="1">{{ category.title }}</a>
                                 {% endfor %}
-                                {% if user.is_authenticated %}
+                                {% if user.is_superuser %}
 
                                 <b>
                                     <a href="{% url 'category_create' %}" class="dropdown-link" style="font-weight: bold;" tabindex="0" bis_skin_checked="1"> + Добавить категорию </a>

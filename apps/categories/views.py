@@ -14,14 +14,21 @@ def category_detail(request, slug):
     paginator = Paginator(products, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    context = {
-        'category' : category,
-        'products' : products,
-        'home' : {},
-        'categories' : categories,
-        'page_obj': page_obj,
-    }
+    context = get_basic_context(request)
+    context['category']= category
+    context['products'] = products
+    context['home'] = {}
+    context['categories'] = categories
+    context['page_obj'] = page_obj
     return render(request, 'category_detail.html', context)
+
+def category_delete(request, slug):
+    category = Category.objects.get(slug = slug)
+    category_id = category.id
+
+    product = Product.objects.filter(category_id = category_id).delete()
+    category.delete()
+    return redirect('index')
 
 def create_category(request):
     form = CategoryCreateForm(request.POST or None)

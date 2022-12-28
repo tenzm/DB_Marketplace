@@ -131,7 +131,6 @@
                                     {% if cart|length == 0 %}
                                         <input type="submit" data-node-type="commerce-add-to-cart-button"
                                         data-loading-text="Adding to cart..." value="Добавить в корзину" aria-busy="false"
-                                        style="background-color: rgb(191, 255, 113) !important; color: black;"
                                         aria-haspopup="dialog"
                                         class="w-commerce-commerceaddtocartbutton button-primary add-to-cart"><a
                                         data-node-type="commerce-buy-now-button" data-default-text="Buy now"
@@ -153,6 +152,7 @@
                                         {% if user.is_superuser %}
                                         <div class="product__variant--list mb-15" style="margin: 10px 0 0 0;">
                                             <a class="w-commerce-commerceaddtocartbutton button-primary add-to-cart" 
+                                            href="{% url 'product_delete' product.slug %}"
                                             style="background-color: rgb(248, 50, 50) !important;"
                                             type="submit">Удалить
                                                 товар</a>
