@@ -9,11 +9,4 @@ class Migration(migrations.Migration):
         ('users', '0002_user_tel'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='user',
-            name='profile_image',
-            field=models.ImageField(default=1, upload_to='profile_image/'),
-            preserve_default=False,
-        ),
-    ]
+    operations = []

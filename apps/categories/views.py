@@ -10,7 +10,6 @@ from django.core.paginator import Paginator
 def category_detail(request, slug):
     category = Category.objects.get(slug = slug)
     categories = Category.objects.all().order_by('?')[:5]
-    home = Setting.objects.latest('-id')
     products = Product.objects.all().order_by('-id')
     paginator = Paginator(products, 5)
     page_number = request.GET.get('page')
@@ -18,7 +17,7 @@ def category_detail(request, slug):
     context = {
         'category' : category,
         'products' : products,
-        'home' : home,
+        'home' : {},
         'categories' : categories,
         'page_obj': page_obj,
     }
@@ -31,7 +30,7 @@ def create_category(request):
         form.save()
         return redirect('index')
 
-    context = get_basic_context()
+    context = get_basic_context(request)
 
     context['form'] = form
     

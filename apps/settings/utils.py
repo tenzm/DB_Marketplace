@@ -4,14 +4,19 @@ from apps.settings.models import Setting, About, Team
 from apps.products.models import Product, Discount, ProductComment
 from apps.categories.models import Category
 from django.template import RequestContext
+from apps.cart.models import Cart, CartManager
 
-def get_basic_context():
+
+def get_basic_context(request):
     home = {}
     slide_products = Product.objects.all().order_by('-id')[:5]
     products = Product.objects.all().order_by('-id')[:8]
     one_random_product = Product.objects.all().order_by('?')[:1]
     two_random_product = Product.objects.all().order_by('?')[:1]
     three_random_product = Product.objects.all().order_by('?')[:1]
+
+    cart_len = Cart.objects.filter(user = request.user.id).count()
+
     expensive_products = Product.objects.all().order_by('-price')[:3]
     categories = Category.objects.all().order_by('-id')
     categories_dict = {}
@@ -50,5 +55,6 @@ def get_basic_context():
         'discount_product' : discount_product,
         'most_popular_product' : most_popular_product,
         'comments' : comments,
+        "cart_len": cart_len
     }
     return context

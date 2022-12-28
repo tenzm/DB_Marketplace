@@ -7,7 +7,8 @@ from django.template import RequestContext
 
 # Create your views here.
 def index(request):
-    context = get_basic_context()
+    context = get_basic_context(request)
+    print(context)
     return render(request, 'index-2.html', context)
 
 def about_us(request):

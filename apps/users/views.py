@@ -17,6 +17,8 @@ def register(request):
             # Save the User object
             new_user.save()
             return redirect('index')
+        else:
+            print("asdfalsdjfadkfasdfa dfadfa dfa ", user_form)
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/register.html', {'user_form': user_form})
@@ -41,7 +43,7 @@ def user_login(request):
 
 def user_profile(request, id):
     user = User.objects.get(id = id)
-    home = Setting.objects.latest('id')
+    home = {}
     context = {
         'user' : user,
         'home' : home,

@@ -7,9 +7,8 @@ from apps.settings.models import Setting
 
 def cart_view(request):
     cart_obj, new = Cart.objects.get_or_new(request)
-    home = Setting.objects.latest('id')
     context = {
-        'home' : home
+        'home' : {}
     }
     return render(request, 'cart/cart_page.html', context = locals())
 

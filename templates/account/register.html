@@ -33,10 +33,38 @@
                                     <h3 class="account__login--header__title mb-10">Create an Account</h3>
                                     <p class="account__login--header__desc">Register here if you are a new customer</p>
                                 </div>
-                                <form action="{% url 'register' %}" method="POST" enctype='multipart/form-data'>
-                                    {{ user_form.as_p }}
+                                <form action="." method="post" class="self-form">
+
                                     {% csrf_token %}
-                                    <p><input type="submit" value="Create my account"></p>
+
+                                    <ul style="padding: 0; margin: 0;">
+                                        <li class="input_original">
+                                          <p>Введите псевдоним:</p>
+                                          {{ user_form.username }}
+                                        </li>
+                                        <li class="input_original">
+                                            <p>Введите имя:</p>
+                                            {{ user_form.first_name }}
+                                          </li>
+                                          <li class="input_original">
+                                            <p>Введите Email:</p>
+                                            {{ user_form.email }}
+                                          </li>
+                                          <li class="input_original">
+                                            <p>Введите телефон:</p>
+                                            {{ user_form.tel }}
+                                          </li>
+                                        <li class="input_original">
+                                          <p>Введите пароль:</p>
+                                          {{ user_form.password }}
+                                        </li>
+                                        <li class="input_original">
+                                            <p>Введите пароль еще раз:</p>
+                                            {{ user_form.password2 }}
+                                          </li>
+                                      </ul>
+                                
+                                      <input type="submit" class="submit-button" value="Регистрация" />
                                 </form>
                                 </div>
                             </div>

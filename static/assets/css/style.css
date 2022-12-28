@@ -15040,7 +15040,7 @@ div#preloader {
    
    .section.product {
      padding-top: 85px;
-     padding-bottom: 120px;
+     padding-bottom: 0;
    }
    
    .section.blog-category {
@@ -18150,7 +18150,6 @@ div#preloader {
    
    .sidebar-product-sticky {
      position: -webkit-sticky;
-     position: sticky;
      top: 20px;
      overflow: hidden;
      border-radius: 20px;
@@ -18605,6 +18604,7 @@ div#preloader {
      -webkit-box-pack: justify;
      -webkit-justify-content: space-between;
      -ms-flex-pack: justify;
+     width: 50vw ;
      justify-content: space-between;
    }
    

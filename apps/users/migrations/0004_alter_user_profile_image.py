@@ -9,10 +9,4 @@ class Migration(migrations.Migration):
         ('users', '0003_user_profile_image'),
     ]
 
-    operations = [
-        migrations.AlterField(
-            model_name='user',
-            name='profile_image',
-            field=models.ImageField(blank=True, null=True, upload_to='profile_image/'),
-        ),
-    ]
+    operations = []

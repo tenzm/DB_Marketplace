@@ -8,6 +8,7 @@ class Product(models.Model):
     
     main_product_image = models.ImageField(upload_to = 'main_product_image', blank = True, null = True)
     description = models.TextField()
+    specs = models.TextField(default="")
     price = models.FloatField()
     rating = models.IntegerField(default=0)
     count = models.IntegerField()

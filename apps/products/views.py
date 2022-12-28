@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from apps.cart.models import Cart, CartManager
 from apps.products.models import Product, ProductComment, FavoriteProduct, LikeProduct
 from apps.settings.utils import get_basic_context
 from apps.settings.models import Setting
@@ -10,9 +11,14 @@ from django.core.mail import send_mail
 # Create your views here.
 def product_detail(request, slug):
     product = Product.objects.get(slug = slug)
+    cart = Cart.objects.filter(user = request.user.id, products = product)
     random_products = Product.objects.all().order_by('?')[:20]
-    home = Setting.objects.latest('id')
-    categories = Category.objects.all().order_by('?')[:5]
+    category = None
+    categories = Category.objects.all()
+    for c in categories:
+        if(c.id == product.category_id):
+            category = c
+    product.category_id
     if 'like' in request.POST:
         try:
             like = LikeProduct.objects.get(user=request.user, product=product)
@@ -29,8 +35,10 @@ def product_detail(request, slug):
     context = {
         'product' : product,
         'random_products' : random_products,
-        'home' : home,
+        'cart': cart,
+        'home' : {},
         'categories' : categories,
+        'current_category': category
     }
     return render(request, 'products/detail.html', context)
 
@@ -39,7 +47,7 @@ def product_search(request):
     qury_obj = request.GET.get('key')
     if qury_obj:
         products = Product.objects.filter(Q(title__icontains = qury_obj))
-    context = get_basic_context()
+    context = get_basic_context(request)
     context["products"] = products
     return render(request, 'products/search.html', context)
 

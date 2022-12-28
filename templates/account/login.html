@@ -5,22 +5,6 @@
 {% include 'include/header.html' %}
 <main class="main__content_wrapper">
         
-    <!-- Start breadcrumb section -->
-    <section class="breadcrumb__section breadcrumb__bg">
-        <div class="container">
-            <div class="row row-cols-1">
-                <div class="col">
-                    <div class="breadcrumb__content">
-                        <h1 class="breadcrumb__content--title text-white mb-10">Account Page</h1>
-                        <ul class="breadcrumb__content--menu d-flex">
-                            <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Home</a></li>
-                            <li class="breadcrumb__content--menu__items"><span class="text-white">Account Page</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- End breadcrumb section -->
 
     <!-- Start login section  -->
@@ -32,16 +16,25 @@
                         <div class="col">
                             <div class="account__login register">
                                 <div class="account__login--header mb-25">
-                                    <h3 class="account__login--header__title mb-10">Create an Account</h3>
-                                    <p class="account__login--header__desc">Register here if you are a new customer</p>
+                                    <h3 class="account__login--header__title mb-10">Войти в аккаунт</h3>
                                 </div>
-                                <form action="." method="post">
-                                    {{ form.as_p }}
+                                <form action="." method="post" class="self-form">
+
                                     {% csrf_token %}
-                                    <p><input type="submit" value="Log-in"></p>
+
+                                    <ul style="padding: 0; margin: 0;">
+                                        <li class="input_original">
+                                          <p>Введите имя пользователя:</p>
+                                          {{ form.username }}
+                                        </li>
+                                        <li class="input_original">
+                                          <p>Введите пароль:</p>
+                                          {{ form.password }}
+                                        </li>
+                                      </ul>
+                                
+                                      <input type="submit" class="submit-button" value="Войти" />
                                 </form>
-                                <h3 class="account__login--header__title mb-10">Войти через: </h3>
-                                <a href="{% provider_login_url 'google' %}"><button>Google Account</button></a>
                                 </div>
                             </div>
                         </div>

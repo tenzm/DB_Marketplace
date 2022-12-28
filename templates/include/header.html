@@ -116,14 +116,14 @@
               bis_skin_checked="1">
               <div data-node-type="commerce-cart-wrapper" data-open-product="" data-wf-cart-type="rightSidebar"
                 data-wf-cart-query="query" data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper cart" bis_skin_checked="1"><a
-                  href="https://markettemplate.webflow.io/#" data-node-type="commerce-cart-open-link"
+                  href="{% url 'cart_page' %}" data-node-type="commerce-cart-open-link"
                   class="w-commerce-commercecartopenlink cart-button w-inline-block" aria-label="Open empty cart"><img
 
                   src="{% static 'assets/img/cart.svg' %}" 
                     alt="Cart Icon - Market Webflow Template" class="cart-icon">
                   <div
                     data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItemsCount%22%7D%7D%5D"
-                    class="w-commerce-commercecartopenlinkcount cart-quantity" bis_skin_checked="1">0</div>
+                    class="w-commerce-commercecartopenlinkcount cart-quantity" bis_skin_checked="1">{{cart_len}}</div>
                 </a>
                 <div data-node-type="commerce-cart-container-wrapper" style="display:none"
                   class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-rightSidebar cart-wrapper"

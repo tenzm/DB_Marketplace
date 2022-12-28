@@ -16,3 +16,7 @@
     color: white !important;
     margin-top: 30px !important;
 }
+
+.section.product {
+    padding-bottom: 0 !important;
+}
